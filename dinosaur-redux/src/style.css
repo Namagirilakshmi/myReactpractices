@@ -1,0 +1,8 @@
+.row .panel.col-md-3{
+    padding: unset;
+    margin-right: 10px;
+}
+.panel-body .texts{
+    height: 50px;
+    overflow: auto; 
+}

@@ -1,0 +1,126 @@
+.hide{
+	display: none;
+}
+.show{
+	display: block;
+}
+.TabList{
+	list-style-type: none;
+}
+.TabList li{
+	padding: 25px;
+}
+.dinosaurs-content{
+	background: rgba(255,255,255,0.75);
+	text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0);
+    border-radius: 5px;
+}
+.container.container-inner{
+	background: url("../images/bg.jpg") no-repeat fixed center;
+}
+.containerWrapper{
+  margin: 0 auto;
+}
+.container.container-inner{
+	padding: 37px;
+}
+.nav{
+	background:#2c3840;
+	line-height: 45px;    
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.nav a{
+	list-style-type: none;
+	color: #e6e6e6;
+}
+footer.page-footer {  
+  	background-color: #ee6e73;
+}
+.footer-copyright{
+	padding: 10px;
+}
+footer.page-footer .footer-copyright {
+  	overflow: hidden;
+  	line-height: 50px;
+  	font-weight: 300;
+  	color: rgba(255, 255, 255, 0.8);
+  	background-color: rgb(44, 56, 64);
+}
+.brand-logo {
+  	color: #fff;
+  	display: inline-block;
+  	font-size: 2.1rem;
+  	padding: 15px;
+  	white-space: nowrap;
+}
+.containerWrapper div{
+/*	margin-bottom: 20px;
+*/}
+ul{
+	margin-left: unset;
+}
+.columns{
+	height: inherit;
+	padding: unset;
+}
+.TabList {
+	border: 1px solid #000;
+}
+.list{
+	border-bottom: 1px solid #000;
+	cursor: pointer;
+}
+.list:last-child{
+	border-bottom: none;
+}
+.listContent{
+	border: 1px solid #000;
+	border-left: none;
+	height: 457px;
+    padding: 15px 0px 0px 15px;
+}
+.listContent h4{
+	text-transform: uppercase;
+}
+.list a{
+	color: #000;
+	position: relative;
+}
+.menu.vertical>li{
+	padding-left: 15px;
+}
+.list a:after{
+	display: block;
+    width: 0;
+    height: 0;
+    border: 6px inset;
+    content: "";
+    border-right-width: 0;
+    border-left-style: solid;
+    border-color: transparent transparent transparent #000;
+    position: absolute;
+    top: 50%;
+    margin-top: -6px;
+    right: -11rem;
+}
+.list.active{
+	background: #2c3840;	
+}
+.list.active a{
+	color: #fff;
+}
+.list.active a:after{
+	border-color: transparent transparent transparent #fff;
+}
+@media screen and (min-width: 64em) and (max-width: 74.9375em){
+	.dinosaurs-content{
+		padding: 0;
+	}
+}
+@media screen and (min-width: 40em) and (max-width: 63.9375em){
+	.dinosaurs-content{
+	    padding: 20px 0.5em 10px 1em;
+	}
+}

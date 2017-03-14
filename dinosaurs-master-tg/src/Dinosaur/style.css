@@ -1,0 +1,229 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+body {
+  -webkit-touch-callout: none;
+  -webkit-text-size-adjust: none;
+  background: #FFF;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+:focus {
+  outline: none;
+}
+.spaced {
+  padding-top: 20px;
+}
+.capitalize {
+  text-transform: capitalize;
+}
+.col-centered {
+  float: none !important;
+  margin: 0 auto;
+}
+.small-glyph {
+  font-size: 10px;
+  margin-top: 4px;
+}
+ul.nav > li > a.active {
+  background: #DDD;
+}
+.header-menu {
+  position: fixed !important;
+  z-index: 3;
+  width: 100% !important;
+  border: 0px;
+  background-color: #002C5F;
+}
+.header-menu .navbar-brand {
+  color: #FFF;
+  font-size: 20px;
+}
+.header-menu .navbar-toggle .icon-bar {
+  color: #FFF;
+  background-color: #FFF;
+}
+.side-menu {
+  position: fixed;
+  width: 275px;
+  height: 100%;
+  background-color: #F8F8F8;
+  border-right: 1px solid #E7E7E7;
+}
+.side-menu .nav {
+  margin-top: 50px;
+}
+.side-menu .nav > li > a {
+  color: #777;
+  background-color: transparent;
+}
+.side-menu .nav > li > a:hover, .side-menu .nav > li > a:focus {
+  color: #333;
+}
+.side-menu .nav li a {
+  padding: 15px;
+}
+.side-body {
+  margin-left: 285px;
+  padding-top: 50px;
+}
+.side-body .body-content {
+  overflow: auto;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .side-menu {
+    position: relative;
+    width: 100%;
+  }
+  @-moz-keyframes slidein {
+    0% {
+      left: -300px;
+    }
+    100% {
+      left: 10px;
+    }
+  }
+  @-webkit-keyframes slidein {
+    0% {
+      left: -300px;
+    }
+    100% {
+      left: 10px;
+    }
+  }
+  @keyframes slidein {
+    0% {
+      left: -300px;
+    }
+    100% {
+      left: 10px;
+    }
+  }
+  @-moz-keyframes slideout {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: -300px;
+    }
+  }
+  @-webkit-keyframes slideout {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: -300px;
+    }
+  }
+  @keyframes slideout {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: -300px;
+    }
+  }
+  .side-menu > .nav.slide-in {
+    -moz-animation: slidein 300ms forwards;
+    -o-animation: slidein 300ms forwards;
+    -webkit-animation: slidein 300ms forwards;
+    animation: slidein 300ms forwards;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+  .side-menu > .nav {
+    position: fixed;
+    left: -275px;
+    width: 275px;
+    height: 100%;
+    margin-left: -10px;
+    border-right: 1px solid #e7e7e7;
+    background-color: #f8f8f8;
+    -moz-animation: slideout 300ms forwards;
+    -o-animation: slideout 300ms forwards;
+    -webkit-animation: slideout 300ms forwards;
+    animation: slideout 300ms forwards;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+  @-moz-keyframes bodyslidein {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: 300px;
+    }
+  }
+  @-webkit-keyframes bodyslidein {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: 300px;
+    }
+  }
+  @keyframes bodyslidein {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: 300px;
+    }
+  }
+  @-moz-keyframes bodyslideout {
+    0% {
+      left: 300px;
+    }
+    100% {
+      left: 0;
+    }
+  }
+  @-webkit-keyframes bodyslideout {
+    0% {
+      left: 300px;
+    }
+    100% {
+      left: 0;
+    }
+  }
+  @keyframes bodyslideout {
+    0% {
+      left: 300px;
+    }
+    100% {
+      left: 0;
+    }
+  }
+  .side-body {
+    margin-left: 0px;
+    position: relative;
+    -moz-animation: bodyslideout 300ms forwards;
+    -o-animation: bodyslideout 300ms forwards;
+    -webkit-animation: bodyslideout 300ms forwards;
+    animation: bodyslideout 300ms forwards;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+  .body-slide-in {
+    -moz-animation: bodyslidein 300ms forwards;
+    -o-animation: bodyslidein 300ms forwards;
+    -webkit-animation: bodyslidein 300ms forwards;
+    animation: bodyslidein 300ms forwards;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+  .header-menu .navbar-toggle {
+    border: 0;
+    float: left;
+    padding: 18px;
+    margin: 0;
+    border-radius: 0;
+  }
+}
