@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-import { Row, Col, Table, Icon, Input } from 'react-materialize';
+import { Row, Col, Table, Icon, Input, Button } from 'react-materialize';
 
 import "../style.css";
 
@@ -61,6 +61,10 @@ class ScoreTable extends Component {
             searchBy, searchVal
         });        
     }
+    deleteScore(e,id){
+        this.props.actions.deleteScore({id});
+    }
+
     render() {
         let {scores} = this.props;
         var filterBy = this.state.searchVal.toString().toLowerCase();
@@ -72,6 +76,7 @@ class ScoreTable extends Component {
             return (<tr key={i}>
                 <td>{score.name}</td>
                 <td>{score.mark}</td>
+                <td><Button onClick={(e)=>{this.deleteScore(e,score.id)}}>Delete</Button></td>
             </tr>
             );
         });
@@ -79,7 +84,9 @@ class ScoreTable extends Component {
             <div>
                 <Row>
                     <Col s={12}>
-                        <Link to="/">Hide Scores</Link>
+                        <Link to="/">
+                            <Button waves="light">Hide Scores</Button>
+                        </Link>
                     </Col>
                 </Row>
                 <Row>

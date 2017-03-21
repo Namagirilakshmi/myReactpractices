@@ -13,13 +13,7 @@ class App extends Component {
     render () {
         return (
             <div>
-                {/*{this.props.demo>=10?null:<Demo demoVal={this.props.demo} incDemoVal={(a)=>{this.props.actions.incrementDemo(a)}} />}*/}
-                {/*{this.props.demo}    <button onClick={()=>{this.props.actions.incrementDemo(2)}}>Click</button>*/}
-                <ul>
-                    <li><Link to="/demo">Demo</Link></li>
-                    <li><Link to="/example">Example</Link></li>
-                </ul> 
-                {this.props.children!=null?React.cloneElement(this.props.children,this.props):null}                              
+                                       
             </div>
         )
     }

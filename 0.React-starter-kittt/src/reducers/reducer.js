@@ -7,6 +7,9 @@ export function incrementReducer(state=initialState,action){
         case "INC_DEMO":{
             return Object.assign({},state,{demo:state.demo+action.data})
         }
+        case "LOAD":{
+            return Object.assign({},state);
+        }
         default:
             return state;
     }

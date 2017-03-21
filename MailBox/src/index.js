@@ -18,10 +18,7 @@ ReactDOM.render(
                 <IndexRoute component={Inbox} />
                 <Route path="/newMail" component={NewMail}/>
                 <Route path="/inbox" component={Inbox} />
-                <Route path="/sentItems" component={SentItems} />
-                {/*<Route path="/topics" component={Topics}>
-                <Route path="/topic/:subject" component={Topic} />
-                </Route>    */}
+                <Route path="/sentItems" component={SentItems} />                
             </Route>
         </Router>
     </Provider>

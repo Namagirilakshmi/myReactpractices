@@ -1,0 +1,11 @@
+[06:58:20PM]user Namagirilakshmi(548962) has entered room
+[06:58:20PM]analyst Praveen has entered room
+[06:58:04PM]Praveen>Hello Namagirilakshmi(548962), Welcome to Cognizant IT Live Chat Support. My name is Praveen. How may I help you?
+[06:58:12PM]Praveen>Good Evening.
+[06:58:13PM]Praveen>How may I help you?
+[06:58:46PM]Namagirilakshmi(548962)>my account is getting locked frequently.
+[06:59:10PM]Namagirilakshmi(548962)>i got taskbar notification to lock my pc and login again
+[06:59:35PM]Praveen>Okay.
+[06:59:59PM]Namagirilakshmi(548962)>i had done the same but when i enter my pwd for the first time it is showing that my account is locked....
+[07:00:42PM]Namagirilakshmi(548962)>i got this prob for 2 times..
+[07:00:52PM]Praveen>According to the Corporate Security Team update, we are not authorized to deal with user accounts via chat. All the security automations are built in IVR options. We therefore request you to contact our voice support by dialing 56666 option 1.
