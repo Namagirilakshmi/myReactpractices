@@ -1,7 +1,13 @@
 let initialState = {
-    scores: [
-
-    ]
+    scores: [],
+    credentials: [
+        {
+            uname: "Aadharsha",
+            pwd: "123456"
+        }
+    ],
+    isUserValid: false,
+    currentUser: undefined
 }
 export function addScoreReducer(state = initialState, action) {
     switch (action.type) {
@@ -32,10 +38,26 @@ export function addScoreReducer(state = initialState, action) {
             rows = rows.filter(score => score.id != action.payload.id);
             return Object.assign({}, state, { scores: rows });
         }
-        case "EDIT_SCORE": {
-            let newState = Object.assign({}, state);
-            let rows = newState.scores.slice();
-            return Object.assign({}, state, { scores: rows });
+        case "REGISTER": {
+            return Object.assign({}, state, { credentials: [...state.credentials, action.payload] });
+        }
+        case "LOGIN": {
+            let isUserValid = false;
+            let {currentUser} = state;
+            let checkUser = [...state.credentials];
+            checkUser = checkUser.filter(user => user.uname == action.payload.uname && user.pwd == action.payload.pwd);
+            if (checkUser.length == 1) {
+                isUserValid = true
+                currentUser = action.payload.uname
+                window.sessionStorage.setItem("userLogged",currentUser);
+            } else {
+                isUserValid = false;
+            }
+            return Object.assign({}, state, { isUserValid, currentUser })
+        }
+        case "LOGOUT":{
+            window.sessionStorage.removeItem("userLogged");
+            return Object.assign({}, state)
         }
         default:
             return state;

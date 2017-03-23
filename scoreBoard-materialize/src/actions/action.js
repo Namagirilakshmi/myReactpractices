@@ -7,6 +7,12 @@ export function sortScore(payload){
 export function deleteScore(payload){
     return {type:"DELETE_SCORE",payload};
 }
-export function editScore(payload){
-    return {type:"EDIT_SCORE",payload};
+export function register(payload){
+    return {type:"REGISTER",payload};
+}
+export function login(payload){
+    return {type:"LOGIN",payload};
+}
+export function logout(){
+    return {type:"LOGOUT"};
 }

@@ -84,7 +84,7 @@ class ScoreTable extends Component {
             <div>
                 <Row>
                     <Col s={12}>
-                        <Link to="/">
+                        <Link to="/score/1">
                             <Button waves="light">Hide Scores</Button>
                         </Link>
                     </Col>

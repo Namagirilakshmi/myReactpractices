@@ -1,42 +1,42 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link, browserHistory } from 'react-router';
 
-import { Card, Button, Row, Col } from 'react-materialize';
+import { Button, Row, Col } from 'react-materialize';
 
 import * as actions from '../actions/action';
 import { connect } from 'react-redux';
 
 import { bindActionCreators } from 'redux';
 
-import GetScore from './GetScore.jsx';
-import Scoretable from './ScoreTable.jsx';
-
+import './style.css';
 
 class App extends Component {
     constructor(props) {
         super(props);
     }
+    logout(){
+        this.props.actions.logout();
+        browserHistory.push("/");
+    }
     render() {
-        return (
-            <div className="container">
-                <div>
-                    <Card>
+        let user = window.sessionStorage.getItem("userLogged");        
+        return (            
+            <div>               
+                <header className="container">
+                    {
+                        this.props.location.pathname=="/"?null:
                         <Row>
                             <Col s={6}>
-                                <GetScore actions={this.props.actions} />
+                                <h5>Hi {this.props.currentUser}</h5>
                             </Col>
-                            <Col s={6}>
-                                {this.props.location.pathname === "/viewScores" ? null :
-                                    <Link to="/viewScores">
-                                        <Button waves='light' >View scores</Button>
-                                    </Link>
-                                }
+                            <Col s={2} offset="s4">
+                                <Button className="logout" onClick={()=>{this.logout()}}>Logout</Button>
                             </Col>
                         </Row>
-                    </Card>
-                </div>
-                <div>                    
-                    {this.props.children != null ? React.cloneElement(this.props.children, {actions:this.props.actions,scores:this.props.scores}) : null}
+                    }
+                </header>
+                <div className="container">
+                    {this.props.children != null ? React.cloneElement(this.props.children, { actions: this.props.actions, scores: this.props.scores,currentUser:this.props.currentUser, credentials: this.props.credentials, isUserValid: this.props.isUserValid }) : null}
                 </div>
             </div>
         )
@@ -46,6 +46,9 @@ class App extends Component {
 function mapStateToProps(state) {
     return {
         scores: state.addScoreReducer.scores,
+        credentials: state.addScoreReducer.credentials,
+        currentUser:state.addScoreReducer.currentUser,
+        isUserValid: state.addScoreReducer.isUserValid
     };
 }
 function mapDispatchToProps(dispatch) {
