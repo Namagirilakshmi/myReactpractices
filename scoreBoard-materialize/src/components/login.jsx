@@ -9,34 +9,37 @@ class Login extends Component {
         super(props)
         this.state = {
             uname: "",
-            pwd: ""            
+            pwd: ""
         }
     }
-    
-    componentWillMount () {
+
+    componentWillMount() {
         let user = window.sessionStorage.getItem("userLogged");
-        if(user!==null){
+        if (user !== null) {
             browserHistory.push('/score/1');
         }
     }
-    
+
     handleChange(e, field) {
         this.setState({ [field]: e.target.value });
     }
     register() {
         browserHistory.push('/register');
     }
-    login(){  
-        let {uname,pwd} = this.state;
-        this.props.actions.login({uname,pwd});
-        browserHistory.push('/score/1');      
+    login() {
+        let {uname, pwd} = this.state;
+        this.props.actions.login({ uname, pwd });
     }
-    componentWillReceiveProps (nextProps) {
-        if(nextProps.isUserValid){
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.isUserValid) {
             browserHistory.push('/score/1');
         }
+        else {
+            Materialize.toast('Invalid User', 3000)
+
+        }
     }
-    
+
     render() {
         return (
             <div className="container">

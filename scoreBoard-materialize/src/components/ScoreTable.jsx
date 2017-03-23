@@ -81,7 +81,7 @@ class ScoreTable extends Component {
             );
         });
         return (
-            <div>
+            <div className="white-text">
                 <Row>
                     <Col s={12}>
                         <Link to="/score/1">
@@ -90,7 +90,7 @@ class ScoreTable extends Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Col s={6}>
+                    <Col s={12}>
                         <Table>
                             <thead>
                                 <tr>

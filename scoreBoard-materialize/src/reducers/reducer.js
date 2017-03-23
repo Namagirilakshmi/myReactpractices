@@ -6,8 +6,9 @@ let initialState = {
             pwd: "123456"
         }
     ],
-    isUserValid: false,
-    currentUser: undefined
+    isUserValid: undefined,
+    currentUser: undefined,
+    userExist: false
 }
 export function addScoreReducer(state = initialState, action) {
     switch (action.type) {
@@ -39,23 +40,27 @@ export function addScoreReducer(state = initialState, action) {
             return Object.assign({}, state, { scores: rows });
         }
         case "REGISTER": {
-            return Object.assign({}, state, { credentials: [...state.credentials, action.payload] });
+            let match = state.credentials.filter((item) => {
+                return (item.uname != action.payload.uname);
+            })
+            if (match.length == 0) {
+                return Object.assign({}, state, { userExist: true });
+            }
+            return Object.assign({}, state, { credentials: [...state.credentials, action.payload], userExist: false });
         }
         case "LOGIN": {
             let isUserValid = false;
-            let {currentUser} = state;
             let checkUser = [...state.credentials];
             checkUser = checkUser.filter(user => user.uname == action.payload.uname && user.pwd == action.payload.pwd);
             if (checkUser.length == 1) {
                 isUserValid = true
-                currentUser = action.payload.uname
-                window.sessionStorage.setItem("userLogged",currentUser);
+                window.sessionStorage.setItem("userLogged", action.payload.uname);
             } else {
                 isUserValid = false;
             }
-            return Object.assign({}, state, { isUserValid, currentUser })
+            return Object.assign({}, state, { isUserValid })
         }
-        case "LOGOUT":{
+        case "LOGOUT": {
             window.sessionStorage.removeItem("userLogged");
             return Object.assign({}, state)
         }
