@@ -41,9 +41,22 @@ class Login extends Component {
     }
 
     render() {
+        console.log(this.props);
         return (
             <div className="container">
                 <Card>
+                    <Row>
+                        <Col s={10} offset="s2">
+                            <h5 className="black-text">
+                                <Col s={1}>
+                                    <Icon>account_balance</Icon>
+                                </Col>
+                                <Col s={11}>
+                                    Login
+                                 </Col>
+                            </h5>
+                        </Col>
+                    </Row>
                     <Row>
                         <Col s={10} offset="s2">
                             <Input s={9} label="Enter User Name" onChange={(e, uname) => { this.handleChange(e, "uname") }} validate><Icon>perm_identity</Icon></Input>

@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 
 import { Card, Row, Col, Input, Icon, Button } from 'react-materialize';
 import { browserHistory } from 'react-router';
+import $ from 'jquery';
 
 
 class Register extends Component {
@@ -24,6 +25,9 @@ class Register extends Component {
         } else {
             console.log("password didn't matched");
         }
+    }
+    handleSubmit(e){
+        e.preventDefault();
     }
     handleChange(e, field) {
         this.setState({ [field]: e.target.value });
@@ -63,31 +67,33 @@ class Register extends Component {
                             </h5>
                         </Col>
                     </Row>
-                    <Row>
-                        <Col s={10} offset="s2">
-                            <Input s={9} label="Enter User Name" onChange={(e, uname) => { this.handleChange(e, "uname") }} validate><Icon>perm_identity</Icon></Input>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col s={10} offset="s2">
-                            <Input s={9} label="Enter Password" onChange={(e, pwd) => { this.handleChange(e, "pwd") }} validate type='password'><Icon>lock</Icon></Input>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col s={10} offset="s2">
-                            <Input s={9} label="Re-Enter Password" onChange={(e, rePwd) => { this.handleChange(e, "rePwd") }} validate type='password'><Icon>lock</Icon></Input>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col s={3} offset="s3">
-                            <Button onClick={() => { this.register() }}>Register</Button>
-                        </Col>
-                        {/*<Col s={3}>
+                    <form onSubmit={()=>{this.handleSubmit()}}>
+                        <Row>
+                            <Col s={10} offset="s2">
+                                <Input s={9} label="Enter User Name" onChange={(e, uname) => { this.handleChange(e, "uname") }} validate><Icon>perm_identity</Icon></Input>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col s={10} offset="s2">
+                                <Input s={9} label="Enter Password" onChange={(e, pwd) => { this.handleChange(e, "pwd") }} validate type='password'><Icon>lock</Icon></Input>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col s={10} offset="s2">
+                                <Input s={9} label="Re-Enter Password" onChange={(e, rePwd) => { this.handleChange(e, "rePwd") }} validate type='password'><Icon>lock</Icon></Input>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col s={3} offset="s3">
+                                <Button onClick={() => { this.register() }}>Register</Button>
+                            </Col>
+                            {/*<Col s={3}>
                             <Link to="/" className="link-default">
                                 <Icon>reply</Icon>
                             </Link>
                         </Col>*/}
-                    </Row>
+                        </Row>
+                    </form>
                 </Card>
             </div>
         )
