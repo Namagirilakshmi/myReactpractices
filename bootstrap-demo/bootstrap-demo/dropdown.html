@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+<div class="row">
+
+<div class="col-lg-4">
+<div class="border border-primary" id="content1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+</div>
+<div class="col-lg-4">
+<div style="height:200px" class="border border-primary" id="content2" ondrop="drop(event)" ondragover="allowDrop(event)">
+</div>
+<div class="col-lg-4">
+<button>Submit</button>
+</div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+
+	  function allowDrop(ev) {
+		ev.preventDefault();
+		}
+
+		function drag(ev) {
+			ev.dataTransfer.setData("text", ev.target.id);
+		}
+
+		function drop(ev) {
+			ev.preventDefault();
+			var data = ev.dataTransfer.getData("text");
+			alert(data);
+			ev.target.append(document.getElementById(data));
+		}
+
+ 
+  $(document).ready(function(){    
+
+    $.ajax({
+        type:"GET",
+        url:"jsonfile.json",
+        success:function(result){
+         for(i=0;i<result.length;i++){
+             $('#content1').append($('<p id=' + i + ' draggable="true" ondragstart="drag(event)">'+ result[i].name + '</p>'));
+            }
+        },      
+        error:function(result){
+          console.log(result);
+        }
+      });
+	  /* $.ajax({
+        type:"GET",
+        url:"article.json",
+        success:function(data){         
+          for (var make in data.cars) {         
+            for (var i = 0; i < data.cars[make].length; i++) {
+                var model = data.cars[make][i].model;
+               // var doors = data.cars[make][i].doors;
+                 $('#dropdown2').append($('<option>'+ model + '</option>'));
+                }
+            }
+        },      
+        error:function(result){
+          console.log(result);
+        }
+      });*/
+
+  });
+</script>
+</body>
+</html>
